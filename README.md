@@ -26,3 +26,25 @@ You can monitor the changes of HwBluetoothState through ```addBluetoothStateChan
 5. ```getPhoneConnectedDevices``` Get the connected devices in the Bluetooth settings of the mobile phone.
 
 After connected, you can call any APIs to read/write data.
+
+### Bind the Watch
+Each customer has its own binding process, and our SDK also allows customers to define their own binding process, as follows:
+* ```startBindDeviceWithCallback```/```startQRBindDeviceWithCallback``` start to bind watch, you can do anything before calling this API.
+* ```endBindDeviceWithCallback``` end binding watch. you can do anything before calling this API.
+
+We provide the reference binding process as follows:
+1. Get Watch basic info, such as ID/Firmware Version/Type
+
+### Health Data
+There are many pieces of health data, so when obtaining health data, you need to obtain the number first. Of course, this number only needs to be called once each time.
+
+* ```getHealthDataCountWithCallback```, it will callback all health data count.
+* ```getActivities```, get step/calorie/distance/duration health data.
+* ```getSleeps```, get sleep data.
+* ```getHeartrates```, get heart rate data.
+* ```getHeartrateFatigues```, get stress & spo2 data.
+* ```deleteXXXX```, after obtaining each kind of health data, the data in the watch should be deleted in time (this will not affect the display on the watch)
+
+### Settings
+
+
