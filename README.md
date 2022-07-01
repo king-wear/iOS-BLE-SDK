@@ -33,7 +33,10 @@ Each customer has its own binding process, and our SDK also allows customers to 
 * ```endBindDeviceWithCallback``` end binding watch. you can do anything before calling this API.
 
 We provide the reference binding process as follows:
-1. Get Watch basic info, such as ID/Firmware Version/Type
+1. Get watch basic info, such as ID/Firmware Version/Type.
+2. Start binding.
+3. Set watch basic info, such as user's height/weight/age, set watch's time.
+4. End binding.
 
 ### Health Data
 There are many pieces of health data, so when obtaining health data, you need to obtain the number first. Of course, this number only needs to be called once each time.
@@ -46,5 +49,9 @@ There are many pieces of health data, so when obtaining health data, you need to
 * ```deleteXXXX```, after obtaining each kind of health data, the data in the watch should be deleted in time (this will not affect the display on the watch)
 
 ### Settings
+The APIs of all setting methods start with set. You can find them through the header file or consult us directly.
 
+### Workout
+
+### Watchface
 
