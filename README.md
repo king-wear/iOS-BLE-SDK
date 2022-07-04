@@ -78,6 +78,22 @@ The APIs of all setting methods start with set. You can find them through the he
 ```HwWorkout```: Please check HwWorkout.h header file.
 
 ### Watchface
+* Get the currently displayed watchface: ``` getCurrentWatchfaceIndexWithCallback ```;
+* Set the currently displayed watchface: ``` setCurrentWatchfaceByIndex ```.
+
+#### Custom Watchface
+```
+- (void) otaCustomWatchface:(HwCustomWatchface *_Nonnull)customWatchface
+           progressCallback:(void(^_Nullable)(float f))progressCallback
+             finishCallback:(void(^_Nullable)(BOOL b, NSError * _Nullable error))finishCallback;
+```
+
+#### Online Watchface
+```
+- (void) otaOnlineWatchface:(NSData *_Nonnull)binData
+           progressCallback:(void(^_Nullable)(float f))progressCallback
+             finishCallback:(void(^_Nullable)(BOOL b, NSError * _Nullable error))finishCallback;
+```
 
 ### OTA
 ```
