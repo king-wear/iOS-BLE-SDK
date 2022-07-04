@@ -40,6 +40,15 @@ We provide the reference binding process as follows:
 3. Set watch basic info, such as user's height/weight/age, set watch's time.
 4. End binding.
 
+**For example:**
+1. ```getDeviceIdWithCallback```;
+2. ```getFirmwareVersionWithCallback```;
+3. ```getDeviceTypeWithCallback```;
+4. ```startBindDeviceWithCallback```;
+5. ```setDeviceTime```;
+6. ```setUserInfo```;
+7. ```endBindDeviceWithCallback```;
+
 ### Health Data
 There are many pieces of health data, so when obtaining health data, you need to obtain the number first. Of course, this number only needs to be called once each time.
 
