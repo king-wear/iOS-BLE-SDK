@@ -1,6 +1,9 @@
 # iOS-BLE-SDK
 
 ## Installation
+1. Drag HwBluetoothSDK.framework into your project.
+2. Swift: ```import HwBluetoothSDK```<br>
+   Objc: ``` #import <HwBluetoothSDK/HwBluetoothSDK.h> ```
 
 ### Requirements
 iOS 9.0+
