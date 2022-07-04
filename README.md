@@ -30,6 +30,8 @@ After connected, you can call any APIs to read/write data.
 ### Bind the Watch
 Each customer has its own binding process, and our SDK also allows customers to define their own binding process, as follows:
 * ```startBindDeviceWithCallback```/```startQRBindDeviceWithCallback``` start to bind watch, you can do anything before calling this API.
+```startQRBindDeviceWithCallback```: Bind watch by QR code.
+```startBindDeviceWithCallback```: Bind watch by scanning results.
 * ```endBindDeviceWithCallback``` end binding watch. you can do anything before calling this API.
 
 We provide the reference binding process as follows:
