@@ -57,12 +57,25 @@ There are many pieces of health data, so when obtaining health data, you need to
 * ```getSleeps```, get sleep data.
 * ```getHeartrates```, get heart rate data.
 * ```getHeartrateFatigues```, get stress & spo2 data.
-* ```deleteXXXX```, after obtaining each kind of health data, the data in the watch should be deleted in time (this will not affect the display on the watch)
+* ```deleteXXXX```, after getting each kind of health data, the data in the watch should be deleted in time (this will not affect the display on the watch)
+
+#### Data model
+```HwActivity```: Please check HwActivity.h header file;
+```HwSleep```: Please check HwSleep.h header file;
+```HwHeartRate```: Please check HwHeartRate.h header file;
+```HwHeartrateFatigue```: Please check HwHeartrateFatigue.h header file.
 
 ### Settings
 The APIs of all setting methods start with set. You can find them through the header file or consult us directly.
 
 ### Workout
+#### Get workout data
+1. ```getWorkoutsWithCallback```
+2. ```deleteWorkoutsWithCallback```
+3. APIs of other features are coming soon...
+
+#### Data model
+```HwWorkout```: Please check HwWorkout.h header file.
 
 ### Watchface
 
