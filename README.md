@@ -23,7 +23,7 @@ It is very important to note that scanning and connection can only be performed 
 You can monitor the changes of HwBluetoothState through ```addBluetoothStateChangedCallback```
 
 1. You can make a ble connection by calling ```connectWithBleName``` to pass in the Bluetooth name of the watch.
-2. Or you can call 'connectWithDevice' with the device returned by ```scanWithCallback``` API.
+2. Or you can call ```connectWithDevice``` with the device returned by ```scanWithCallback``` API.
 3. You can monitor Bluetooth connection status by ```addBluetoothConnectionStateChangedCallback```.
 4. ```connected``` Get bluetooth connection status.
 5. ```getPhoneConnectedDevices``` Get the connected devices in the Bluetooth settings of the mobile phone.
