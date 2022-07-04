@@ -60,10 +60,10 @@ There are many pieces of health data, so when obtaining health data, you need to
 * ```deleteXXXX```, after getting each kind of health data, the data in the watch should be deleted in time (this will not affect the display on the watch)
 
 #### Data model
-```HwActivity```: Please check HwActivity.h header file;
-```HwSleep```: Please check HwSleep.h header file;
-```HwHeartRate```: Please check HwHeartRate.h header file;
-```HwHeartrateFatigue```: Please check HwHeartrateFatigue.h header file.
+```HwActivity```: Please check HwActivity.h header file;<br>
+```HwSleep```: Please check HwSleep.h header file;<br>
+```HwHeartRate```: Please check HwHeartRate.h header file;<br>
+```HwHeartrateFatigue```: Please check HwHeartrateFatigue.h header file.<br>
 
 ### Settings
 The APIs of all setting methods start with set. You can find them through the header file or consult us directly.
