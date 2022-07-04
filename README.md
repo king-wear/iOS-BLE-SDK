@@ -30,6 +30,8 @@ After connected, you can call any APIs to read/write data.
 ### Bind the Watch
 Each customer has its own binding process, and our SDK also allows customers to define their own binding process, as follows:
 * ```startBindDeviceWithCallback```/```startQRBindDeviceWithCallback``` start to bind watch, you can do anything before calling this API.
+```startQRBindDeviceWithCallback```: Bind watch by QR code.<br>
+```startBindDeviceWithCallback```: Bind watch by scanning results.
 * ```endBindDeviceWithCallback``` end binding watch. you can do anything before calling this API.
 
 We provide the reference binding process as follows:
@@ -37,6 +39,15 @@ We provide the reference binding process as follows:
 2. Start binding.
 3. Set watch basic info, such as user's height/weight/age, set watch's time.
 4. End binding.
+
+**For example:**
+1. ```getDeviceIdWithCallback```;
+2. ```getFirmwareVersionWithCallback```;
+3. ```getDeviceTypeWithCallback```;
+4. ```startBindDeviceWithCallback```;
+5. ```setDeviceTime```;
+6. ```setUserInfo```;
+7. ```endBindDeviceWithCallback```;
 
 ### Health Data
 There are many pieces of health data, so when obtaining health data, you need to obtain the number first. Of course, this number only needs to be called once each time.
@@ -46,12 +57,61 @@ There are many pieces of health data, so when obtaining health data, you need to
 * ```getSleeps```, get sleep data.
 * ```getHeartrates```, get heart rate data.
 * ```getHeartrateFatigues```, get stress & spo2 data.
-* ```deleteXXXX```, after obtaining each kind of health data, the data in the watch should be deleted in time (this will not affect the display on the watch)
+* ```deleteXXXX```, after getting each kind of health data, the data in the watch should be deleted in time (this will not affect the display on the watch)
+
+#### Data model
+```HwActivity```: Please check HwActivity.h header file;<br>
+```HwSleep```: Please check HwSleep.h header file;<br>
+```HwHeartRate```: Please check HwHeartRate.h header file;<br>
+```HwHeartrateFatigue```: Please check HwHeartrateFatigue.h header file.<br>
 
 ### Settings
 The APIs of all setting methods start with set. You can find them through the header file or consult us directly.
 
 ### Workout
+#### Get workout data
+1. ```getWorkoutsWithCallback```
+2. ```deleteWorkoutsWithCallback```
+3. APIs of other features are coming soon...
+
+#### Data model
+```HwWorkout```: Please check HwWorkout.h header file.
 
 ### Watchface
+* Get the currently displayed watchface: ``` getCurrentWatchfaceIndexWithCallback ```;
+* Set the currently displayed watchface: ``` setCurrentWatchfaceByIndex ```.
 
+#### Custom Watchface
+```
+- (void) otaCustomWatchface:(HwCustomWatchface *_Nonnull)customWatchface
+           progressCallback:(void(^_Nullable)(float f))progressCallback
+             finishCallback:(void(^_Nullable)(BOOL b, NSError * _Nullable error))finishCallback;
+```
+
+#### Online Watchface
+```
+- (void) otaOnlineWatchface:(NSData *_Nonnull)binData
+           progressCallback:(void(^_Nullable)(float f))progressCallback
+             finishCallback:(void(^_Nullable)(BOOL b, NSError * _Nullable error))finishCallback;
+```
+
+### OTA
+```
+/**
+ Each kind of Ota data needs to be assembled into HwOtaDataModel, and each kind of data can have multiple.
+ 1. The API will first ask whether the watch can OTA, and this step will call back readyCallback;
+ 2. This API will transfer data to the watch (verify while transmitting);
+ 3. This API will call back finishcallback to inform app of Ota results.
+ Please note: if the readyCallback callback result is NO (the device does not allow OTA, or other exceptions occur), finishCallback will not be called again.
+ */
+- (void) otaWithDataModels:(NSArray<HwOtaDataModel *> *_Nonnull)dataModels
+             otaDeviceName:(NSString *_Nonnull)otaDeviceName
+             readyCallback:(HwBoolCallback _Nonnull)readyCallback
+          progressCallback:(HwBCFloatCallback _Nullable)progressCallback
+            finishCallback:(HwBoolCallback _Nonnull)finishCallback;
+```
+**HwOtaDataModel:**
+```
++ (HwOtaDataModel *)dataModelWithType:(HwOtaType)type
+                                 data:(NSData *)data;
+```
