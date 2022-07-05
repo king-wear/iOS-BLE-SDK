@@ -104,7 +104,7 @@ The APIs of all setting methods start with set. You can find them through the he
  Each kind of Ota data needs to be assembled into HwOtaDataModel, and each kind of data can have multiple.
  1. The API will first ask whether the watch can OTA, and this step will call back readyCallback;
  2. This API will transfer data to the watch (verify while transmitting);
- 3. This API will call back finishcallback to inform app of Ota results.
+ 3. This API will call back finishCallback to inform app of Ota results.
  Please note: if the readyCallback callback result is NO (the device does not allow OTA, or other exceptions occur), finishCallback will not be called again.
  */
 - (void) otaWithDataModels:(NSArray<HwOtaDataModel *> *_Nonnull)dataModels
